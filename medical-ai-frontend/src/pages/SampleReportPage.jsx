@@ -6,8 +6,8 @@ import Footer from "../components/Footer";
 const SampleReportPage = () => {
   const [currentPage, setCurrentPage] = React.useState(0);
   const pages = [
-    "src/assets/sample-report-page1.png",
-    "src/assets/sample-report-page2.png"
+    "medical-ai-frontend/src/assets/sample-report-page1.png",
+    "medical-ai-frontend/src/assets/sample-report-page2.png"
   ];
 
   const nextPage = () => {
