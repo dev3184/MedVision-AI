@@ -2,13 +2,12 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import { FiFileText, FiDownload, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import Footer from "../components/Footer";
-import sample-report-page1.png from './sample-report-page1.png';
 
 const SampleReportPage = () => {
   const [currentPage, setCurrentPage] = React.useState(0);
   const pages = [
-    "medical-ai-frontend/public/sample-report-page1.png",
-    "medical-ai-frontend/public/sample-report-page2.png"
+    "/sample-report-page1.png",
+    "/sample-report-page2.png"
   ];
 
   const nextPage = () => {
