@@ -37,7 +37,7 @@ public class ImageUploadService {
         HttpEntity<Map<String, String>> requestEntity = new HttpEntity<>(requestBody, headers);
 
         ResponseEntity<Map> response = restTemplate.postForEntity(
-            "http://localhost:5000/analyze", requestEntity, Map.class
+            "https://medvision-ai-1.onrender.com/analyze", requestEntity, Map.class
         );
 
         // ✅ Unwrap the "report" field
