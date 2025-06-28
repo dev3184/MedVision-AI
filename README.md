@@ -1,4 +1,4 @@
-# 🩺 MedVision AI – AI-Powered Medical Image Analysis
+# 🩺 MedVision AI – AI-Powered Medical Imaging Reports
 
 > **Transforming complex medical imaging into clear, patient-friendly reports with AI.**
 
@@ -74,6 +74,8 @@ Designed for doctors, patients, and healthcare providers, it uses modern AI to t
    - Send it via email.
    - Chat with AI about the report.
 
+Demo :
+https://github.com/user-attachments/assets/1b8b5da4-b83e-483e-b036-c1e08326be94
 
 
 ---
