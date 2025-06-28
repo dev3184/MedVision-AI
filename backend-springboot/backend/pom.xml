@@ -103,6 +103,13 @@
                 </annotationProcessorPaths>
             </configuration>
         </plugin>
+	    <plugin>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-maven-plugin</artifactId>
+      <configuration>
+        <jvmArguments>-Xmx256m -Xss512k</jvmArguments>  <!-- Limits RAM -->
+      </configuration>
+    </plugin>
     </plugins>
     </build>
 
