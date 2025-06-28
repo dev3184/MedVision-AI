@@ -1,15 +1,16 @@
-# Use Eclipse Temurin JDK 21 (LTS)
 FROM eclipse-temurin:21-jdk-jammy
 
-# Set workdir and copy files with layer caching
 WORKDIR /app
-COPY .mvn/ .mvn
-COPY mvnw pom.xml ./
-RUN ./mvnw dependency:go-offline
 
-# Copy source and build
+# Install Maven (replace with your needed version)
+RUN apt-get update && apt-get install -y maven
+
+# Copy only necessary files
+COPY pom.xml .
 COPY src ./src
-RUN ./mvnw clean package -DskipTests
+
+# Build using system Maven
+RUN mvn clean package -DskipTests
 
 # Optimized for Render's free tier (256MB RAM)
 CMD ["java", "-Xmx128m", "-XX:MaxRAM=256m", "-jar", "target/backend-0.0.1-SNAPSHOT.jar"] 
