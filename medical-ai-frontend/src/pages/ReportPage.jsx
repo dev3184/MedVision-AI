@@ -23,7 +23,7 @@ const ReportPage = () => {
 
   const handlePDFDownload = () => {
     if (!report?.id) return;
-    const pdfUrl = `http://localhost:8080/api/report/${report.id}/pdf`;
+    const pdfUrl = `https://medvision-ai.onrender.com/api/report/${report.id}/pdf`;
     window.open(pdfUrl, "_blank");
   };
 
@@ -37,7 +37,7 @@ const ReportPage = () => {
     setEmailStatus("");
 
     try {
-      await axios.post(`http://localhost:8080/api/report/${report.id}/email`, { email });
+      await axios.post(`https://medvision-ai.onrender.com/api/report/${report.id}/email`, { email });
       setEmailStatus("Email sent successfully!");
     } catch (err) {
       setEmailStatus("Failed to send email.");
