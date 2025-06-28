@@ -19,7 +19,7 @@ const AskAIPage = () => {
     inputRef.current?.focus();
     const fetchReport = async () => {
       try {
-        const res = await axios.get(`http://localhost:8080/api/report/${id}`);
+        const res = await axios.get(`https://medvision-ai.onrender.com/api/report/${id}`);
         setReport(res.data);
       } catch (err) {
         setError("Could not fetch report. Please check the ID and try again.");
@@ -34,7 +34,7 @@ const AskAIPage = () => {
     setResponse("");
     try {
       const res = await axios.post(
-        `http://localhost:8080/api/report/${id}/chat`,
+        `https://medvision-ai.onrender.com/api/report/${id}/chat`,
         { question }
       );
       setResponse(res.data.answer || "No response from AI.");
