@@ -47,7 +47,7 @@ public class ImageAnalysisService {
         }
 
         // Send image to Python FastAPI
-        URL url = new URL("http://localhost:5000/analyze");
+        URL url = new URL("https://medvision-ai-1.onrender.com/analyze");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setDoOutput(true);
         conn.setRequestMethod("POST");
@@ -127,7 +127,7 @@ public class ImageAnalysisService {
                 "report_context", context));
 
         // 🌐 Send POST to Python /chat endpoint
-        URL url = new URL("http://localhost:5000/chat");
+        URL url = new URL("https://medvision-ai-1.onrender.com/chat");
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setConnectTimeout(10000);
         conn.setReadTimeout(30000);
