@@ -37,7 +37,7 @@ const UploadPage = () => {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("http://localhost:8080/api/upload", formData);
+      const res = await axios.post("https://medvision-ai.onrender.com/api/upload", formData);
       const report = res.data;
       navigate("/report", { state: { report } });
     } catch (err) {
