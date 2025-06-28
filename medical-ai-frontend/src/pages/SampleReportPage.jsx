@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import { FiFileText, FiDownload, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import Footer from "../components/Footer";
 import sample-report-page1.png from './sample-report-page1.png';
+import sample-report-page2.png from './sample-report-page2.png';
 
 const SampleReportPage = () => {
   const [currentPage, setCurrentPage] = React.useState(0);
