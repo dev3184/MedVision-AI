@@ -1,10 +1,11 @@
-# Use lightweight JDK image - 50% smaller than jammy
 FROM eclipse-temurin:21-jdk-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Install Maven dependencies first (cached layer)
+# Install Maven using Alpine package manager
+RUN apk add --no-cache maven
+
+# Copy build files first (for dependency caching)
 COPY pom.xml .
 RUN mvn dependency:go-offline
 
@@ -14,7 +15,5 @@ COPY src ./src
 # Build application
 RUN mvn clean package -DskipTests
 
-
-
-# Optimized startup command
+# Use your specific JAR filename
 CMD ["java", "-Xmx128m", "-XX:MaxRAM=180m", "-XX:+UseSerialGC", "-noverify", "-jar", "target/backend-0.0.1-SNAPSHOT.jar"]
