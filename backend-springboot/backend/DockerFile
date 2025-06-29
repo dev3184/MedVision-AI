@@ -1,16 +1,20 @@
-FROM eclipse-temurin:21-jdk-jammy
+# Use lightweight JDK image - 50% smaller than jammy
+FROM eclipse-temurin:21-jdk-alpine
 
+# Set working directory
 WORKDIR /app
 
-# Install Maven (replace with your needed version)
-RUN apt-get update && apt-get install -y maven
-
-# Copy only necessary files
+# Install Maven dependencies first (cached layer)
 COPY pom.xml .
+RUN mvn dependency:go-offline
+
+# Copy source code
 COPY src ./src
 
-# Build using system Maven
+# Build application
 RUN mvn clean package -DskipTests
 
-# Optimized for Render's free tier (256MB RAM)
-CMD ["java", "-Xmx128m", "-XX:MaxRAM=180m", "-XX:+UseSerialGC", "-jar", "target/backend-0.0.1-SNAPSHOT.jar"]
+
+
+# Optimized startup command
+CMD ["java", "-Xmx128m", "-XX:MaxRAM=180m", "-XX:+UseSerialGC", "-noverify", "-jar", "target/backend-0.0.1-SNAPSHOT.jar"]
